@@ -6,17 +6,18 @@
 
 # Types of UNIX
 
-* Linux (GNU/Linux)
-  * Debian/Ubuntu
-  * Fedora
-  * RHEL/Centos
-  *
-* Minix
+* AT&T unix
+  * Solaris
+  * Minix
 * BSD
   * FreeBSD
   * NetBSD
   * OpenBSD
-* Solaris
+  * (Mac)OSX
+* Linux (GNU/Linux)
+  * Debian/Ubuntu
+  * Fedora
+  * RHEL/Centos
 
 "Those who don't understand Unix are condemned to reinvent it, poorly." – Henry Spencer
 
@@ -106,6 +107,9 @@ type ```/bin/ls -al``` on the a mac and linux
     drwxrwxrwt  3 root root  20480 Feb  1 03:25 tmp
     drwxr-xr-x 13 root root   4096 Oct 15 05:57 usr
     drwxr-xr-x 21 root root   4096 Oct 15 07:06 var
+
+* No drive letters
+* Mount points (how do you access media?)
 
 ## Everything is a file
 
@@ -223,7 +227,18 @@ type ```/bin/ls -al``` on the a mac and linux
 * Find files by name/wildcard/ignore case/
 * find/locate
 
-# Shell globbing
+# Shell features
+
+* shell builtins/utilities
+
+## Globbing
 
 * /var/{log,run}/httpd*
+
+# Processes
+
+* Process control
+* signals and how they interact with running processes
+
+
 

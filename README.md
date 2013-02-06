@@ -277,6 +277,24 @@ type ```/bin/ls -al``` on the a mac and linux
 * chmod
 * chown
 
+# Processes
+
+* backgrounding
+* listing current jobs (jobs)
+* listing current processes (ps)
+* foregrounding any particular job (fg %n)
+* killing (kill %n)
+* signals
+
 * process ownership
 * setuid/setgid
+
+# Useful unix commands
+
+* df - filesystem usage
+* du - disk usage of file/dir
+* gzip/gunzip/zcat
+* diff
+* find
+* history
 

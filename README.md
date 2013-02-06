@@ -19,6 +19,8 @@
   * Fedora
   * RHEL/Centos
 
+# Unix philosophy
+
 "Those who don't understand Unix are condemned to reinvent it, poorly." – Henry Spencer
 
 Unix Philosophy: ***Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.***
@@ -31,6 +33,7 @@ type ```/bin/ls -al``` on the a mac and linux
 * kind of user commands and flags
 * kind of filesystems
 * core philosophy of the OS
+* everything is configured via text files (no global registries/UI to configure stuff)
 
 # Types of files:
 
@@ -240,5 +243,21 @@ type ```/bin/ls -al``` on the a mac and linux
 * Process control
 * signals and how they interact with running processes
 
+# Security
 
+## Users
+
+* root
+* normal user
+
+## Groups
+
+* admin groups (sudoers)
+* non-admin groups
+
+# Security
+
+* file ownership
+* process ownership
+* setuid/setgid
 

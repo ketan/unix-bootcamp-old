@@ -180,7 +180,11 @@ type ```/bin/ls -al``` on the a mac and linux
     brw-rw---- 1 root disk    202,  65 Oct 17 06:41 sda1
     crw-rw-rw- 1 root root      1,   5 Oct 17 06:41 zero
 
-# Man page sections
+# Man page
+
+* what?
+
+## Man page sections
 
     Section     Description
     1           General commands

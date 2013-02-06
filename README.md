@@ -257,7 +257,26 @@ type ```/bin/ls -al``` on the a mac and linux
 
 # Security
 
+# File/Directory ownership
+
 * file ownership
+  * (rwx) or mode integer
+    * r - read
+    * w - write
+    * x - execute
+* directory ownership
+  * (rwx) or mode integer
+    * r - listing
+    * w - delete/move
+    * x - read files and subdirs
+
+    **NOTE**: So, in order to read a file, you must have execute permission on the directory containing that file, and hence on any directory containing that directory as a subdirectory, and so on, up the tree.
+
+## Changing permissions of files/directories
+
+* chmod
+* chown
+
 * process ownership
 * setuid/setgid
 

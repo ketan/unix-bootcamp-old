@@ -19,21 +19,21 @@
   * Fedora
   * RHEL/Centos
 
+Why it matters:
+
+  type ```/bin/ls --help``` on the a mac and linux
+
+  * toolchain that is available
+  * kind of user commands and flags
+  * kind of filesystems
+  * core philosophy of the OS
+  * everything is configured via text files (no global registries/UI to configure stuff)
+
 # Unix philosophy
 
 "Those who don't understand Unix are condemned to reinvent it, poorly." – Henry Spencer
 
 Unix Philosophy: ***Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.***
-
-Why it matters:
-
-type ```/bin/ls -al``` on the a mac and linux
-
-* toolchain that is available
-* kind of user commands and flags
-* kind of filesystems
-* core philosophy of the OS
-* everything is configured via text files (no global registries/UI to configure stuff)
 
 # Types of files:
 
@@ -216,9 +216,48 @@ type ```/bin/ls -al``` on the a mac and linux
 # Pipes and redirection:
 
     |           pipe
-    <file       input redirection from file
-    >file       output redirection to file
-    2>/dev/null stderr redirection to file
+
+Example
+
+    $ ls -al | tr -s ' ' | cut -d ' ' -f 8,9
+    $ ls -al | awk '{print $8, $9}'
+
+    > file       output redirection to file
+    2> /dev/null stderr redirection to file
+
+Example
+
+    [vagrant@unix-bootcamp src]$ find /etc -iname 'passwd'
+    /etc/passwd
+    find: `/etc/selinux/targeted/modules/active': Permission denied
+    find: `/etc/lvm/backup': Permission denied
+    find: `/etc/lvm/cache': Permission denied
+    find: `/etc/lvm/archive': Permission denied
+    find: `/etc/dhcp': Permission denied
+    find: `/etc/audit': Permission denied
+    find: `/etc/audisp': Permission denied
+    /etc/pam.d/passwd
+    find: `/etc/sudoers.d': Permission denied
+    find: `/etc/pki/rsyslog': Permission denied
+    find: `/etc/pki/CA/private': Permission denied
+
+    [vagrant@unix-bootcamp src]$ find /etc -iname 'passwd' > stdout.txt 2> stderr.txt
+    /etc/passwd
+    find: `/etc/selinux/targeted/modules/active': Permission denied
+    find: `/etc/lvm/backup': Permission denied
+    find: `/etc/lvm/cache': Permission denied
+    find: `/etc/lvm/archive': Permission denied
+    find: `/etc/dhcp': Permission denied
+    find: `/etc/audit': Permission denied
+    find: `/etc/audisp': Permission denied
+    /etc/pam.d/passwd
+    find: `/etc/sudoers.d': Permission denied
+    find: `/etc/pki/rsyslog': Permission denied
+    find: `/etc/pki/CA/private': Permission denied
+
+
+    < file       input redirection from file
+
     >>file      output append to file
 
 # Searching through files
@@ -272,6 +311,26 @@ type ```/bin/ls -al``` on the a mac and linux
 
     **NOTE**: So, in order to read a file, you must have execute permission on the directory containing that file, and hence on any directory containing that directory as a subdirectory, and so on, up the tree.
 
+## SUID and SGID File Permissions
+
+**NOTE**: When you execute a program that has the SUID bit enabled, you inherit the permissions of that program's owner. Programs that do not have the SUID bit set are run with the permissions of the user who started the program.
+
+    [vagrant@unix-bootcamp src]$ stat /usr/bin/passwd /usr/bin/make
+      File: `/usr/bin/passwd'
+      Size: 30768           Blocks: 64         IO Block: 4096   regular file
+    Device: fd00h/64768d    Inode: 9097        Links: 1
+    Access: (4755/-rwsr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+    Access: 2013-02-06 22:55:38.699144155 +0000
+    Modify: 2012-02-22 11:48:41.000000000 +0000
+    Change: 2013-02-06 22:54:00.169903094 +0000
+      File: `/usr/bin/make'
+      Size: 170576          Blocks: 336        IO Block: 4096   regular file
+    Device: fd00h/64768d    Inode: 16153       Links: 1
+    Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+    Access: 2013-02-06 23:04:57.185044386 +0000
+    Modify: 2012-04-03 15:24:33.000000000 +0000
+    Change: 2013-02-06 23:01:35.371800809 +0000
+
 ## Changing permissions of files/directories
 
 * chmod
@@ -298,3 +357,15 @@ type ```/bin/ls -al``` on the a mac and linux
 * find
 * history
 
+
+# Package management
+
+* yum install/search/remove
+* yum history [info|list|redo|undo|rollback]
+
+# System boot
+
+## Run levels
+## /etc/init.d
+## Enable/disable services
+## Service priorities

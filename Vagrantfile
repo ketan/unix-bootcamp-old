@@ -14,7 +14,7 @@ Vagrant::Config.run do |config|
     vm_config.vm.customize ["modifyvm", :id, "--memory", (1024*4), '--name', vm_config.vm.host_name, '--cpus', 4]
   end
 
-  config.vm.boot_mode = :gui
+  # config.vm.boot_mode = :gui
   config.ssh.timeout = 400
 
 
@@ -43,7 +43,7 @@ Vagrant::Config.run do |config|
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  # config.vm.share_folder "v-data", "/vagrant_data", "../data"
+  config.vm.share_folder "chef", "/chef", "chef"
 
   # Enable provisioning with Puppet stand alone.  Puppet manifests
   # are contained in a directory path relative to this Vagrantfile.
@@ -72,16 +72,16 @@ Vagrant::Config.run do |config|
   # path, and data_bags path (all relative to this Vagrantfile), and adding
   # some recipes and/or roles.
   #
-  # config.vm.provision :chef_solo do |chef|
-  #   chef.cookbooks_path = "../my-recipes/cookbooks"
-  #   chef.roles_path = "../my-recipes/roles"
-  #   chef.data_bags_path = "../my-recipes/data_bags"
-  #   chef.add_recipe "mysql"
-  #   chef.add_role "web"
-  #
-  #   # You may also specify custom JSON attributes:
-  #   chef.json = { :mysql_password => "foo" }
-  # end
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = "chef/cookbooks"
+    # chef.roles_path = "../my-recipes/roles"
+    # chef.data_bags_path = "../my-recipes/data_bags"
+    chef.add_recipe "install"
+    # chef.add_role "web"
+
+    # You may also specify custom JSON attributes:
+    # chef.json = { :mysql_password => "foo" }
+  end
 
   # Enable provisioning with chef server, specifying the chef server URL,
   # and the path to the validation key (relative to this Vagrantfile).

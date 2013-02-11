@@ -12,7 +12,7 @@ Vagrant::Config.run do |config|
     vm_config.vm.customize ["modifyvm", :id, "--memory", (1024*4), '--name', vm_config.vm.host_name, '--cpus', 4]
   end
 
-  # config.vm.boot_mode = :gui
+  config.vm.boot_mode = :gui
   config.ssh.timeout = 400
 
   config.vm.share_folder "chef", "/chef", "chef"

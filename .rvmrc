@@ -1,2 +1,2 @@
-rvm use ruby-1.9.3@unix-bootcamp
+rvm use system
 

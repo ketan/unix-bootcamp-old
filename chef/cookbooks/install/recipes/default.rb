@@ -6,9 +6,13 @@ end
   package pkg
 end
 
-execute "initdb --encoding UTF8" do
+execute "initdb --encoding utf8 --pgdata /var/lib/pgsql/data" do
   user "postgres"
-  creates ::File.join(["/var/lib/postgres", 'data', 'PG_VERSION'])
+  creates '/var/lib/pgsql/data/PG_VERSION'
+end
+
+execute "mkfifo /tmp/fifo" do
+  user 'vagrant'
 end
 
 execute "fetch ruby binary" do

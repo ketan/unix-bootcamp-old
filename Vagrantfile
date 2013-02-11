@@ -3,7 +3,8 @@
 
 Vagrant::Config.run do |config|
 
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
+  config.vm.box_url = "http://10.12.6.11:4000/centos-6.3-x86_64-unix-bootcamp.box"
+
   config.vm.box = "centos-6.3-x86_64-unix-bootcamp"
   config.vm.define 'centos-6.3-x86_64-unix-bootcamp' do |vm_config|
     vm_config.vm.host_name = 'unix-bootcamp.localdomain'

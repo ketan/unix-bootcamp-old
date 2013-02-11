@@ -1,4 +1,4 @@
-%w(curl wget tree man-pages crontabs at mailx httpd zsh vim-enhanced htop strace git).each do |pkg|
+%w(curl wget tree man man-pages crontabs at mailx httpd zsh vim-enhanced htop strace git).each do |pkg|
   package pkg
 end
 
@@ -13,6 +13,7 @@ end
 
 execute "mkfifo /tmp/fifo" do
   user 'vagrant'
+  creates "/tmp/fifo"
 end
 
 execute "fetch ruby binary" do

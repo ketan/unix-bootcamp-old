@@ -7,6 +7,7 @@
 # Types of UNIX
 
 * AT&T unix
+  * HP-UX
   * Solaris
   * Minix
 * BSD
@@ -18,6 +19,9 @@
   * Debian/Ubuntu
   * Fedora
   * RHEL/Centos
+* Hybrids
+  * AIX
+
 
 Why it matters:
 
@@ -28,6 +32,7 @@ Why it matters:
   * kind of filesystems
   * core philosophy of the OS
   * everything is configured via text files (no global registries/UI to configure stuff)
+  * depends on philosophy - grey areas like TCB or deep-black like AIX' ODM or CoreOS' API
 
 # Unix philosophy
 
